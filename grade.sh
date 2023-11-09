@@ -34,7 +34,7 @@ fi
 # 5. Run the tests and report the grade
 set -e
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > grade.txt
-grep -e "OK" >> grade.txt
+cat grade.txt
 
 # Draw a picture/take notes on the directory structure that's set up after
 # getting to this point
