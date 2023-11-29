@@ -34,7 +34,11 @@ fi
 # 5. Run the tests and report the grade
 set -e
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > grade.txt
-cat grade.txt
+total=`head -2 grade.txt | tail -1 | grep -o "." | wc -l`
+fails=`head -2 grade.txt | tail -1 | grep -o "E" | wc -l`
+successes=$(($total-$fails))
+echo "Tests Passed: $successes, Total Tests: $total"
+
 
 # Draw a picture/take notes on the directory structure that's set up after
 # getting to this point
